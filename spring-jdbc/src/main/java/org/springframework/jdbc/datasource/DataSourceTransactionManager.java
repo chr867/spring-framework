@@ -36,13 +36,19 @@ import org.springframework.util.Assert;
 
 /**
  * {@link org.springframework.transaction.PlatformTransactionManager} implementation
+ * PlatformTransactionManager의 구현체
+
  * for a single JDBC {@link javax.sql.DataSource}. This class is capable of working
  * in any environment with any JDBC driver, as long as the setup uses a
  * {@code javax.sql.DataSource} as its {@code Connection} factory mechanism.
+ * 어떤 JDBC driver든 단일로 사용 가능 DataSource의 factory mechanism을 이용해
+ * Connection을 생성?
+
  * Binds a JDBC {@code Connection} from the specified {@code DataSource} to the
  * current thread, potentially allowing for one thread-bound {@code Connection}
  * per {@code DataSource}.
- *
+ * DataSource에 명시된 JDBC Connection을 현재 Thread에 Bind, 하나의 Thread에 허용
+
  * <p><b>Note: The {@code DataSource} that this transaction manager operates on
  * needs to return independent {@code Connection}s.</b> The {@code Connection}s
  * typically come from a connection pool but the {@code DataSource} must not return
@@ -51,6 +57,7 @@ import org.springframework.util.Assert;
  * to the specified propagation behavior. It assumes that a separate, independent
  * {@code Connection} can be obtained even during an ongoing transaction.
  *
+
  * <p>Application code is required to retrieve the JDBC {@code Connection} via
  * {@link DataSourceUtils#getConnection(DataSource)} instead of a standard
  * EE-style {@link DataSource#getConnection()} call. Spring classes such as
